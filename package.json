@@ -2,7 +2,7 @@
   "name": "coder-s-clock",
   "displayName": "Coder's Clock",
   "description": "A mindful coding timer for VSCode that tracks your session time, reminds you to take beaks, and helps you stay in flow.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.60.0"
   },
