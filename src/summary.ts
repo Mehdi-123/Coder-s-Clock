@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+
 import { formatTime } from "./utils";
 import { getTotalTime } from "./timer";
 

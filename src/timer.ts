@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+
 import { formatTime } from "./utils";
 import { statusBarItem, pauseButton, updateStatusBarColor } from "./statusBar";
 import { BREAK_INTERVAL_SECONDS } from "./constants";
@@ -27,8 +28,12 @@ export function startTimer() {
     const newDate = now.toDateString();
 
     if (newDate !== currentDate) {
-      totalDailyElapsed = 0;
       currentDate = newDate;
+      totalDailyElapsed = 0;
+      elapsedBeforePause = 0;
+      lastBreakReminderAt = 0;
+      startTime = Date.now();
+
       vscode.window.showInformationMessage(
         "🌅 Nouveau jour ! Le compteur quotidien a été réinitialisé."
       );
@@ -92,6 +97,9 @@ export function getTotalTime() {
   return totalDailyElapsed + elapsedBeforePause + currentElapsed;
 }
 
+const config = vscode.workspace.getConfiguration("codersClock");
+const pauseOnDefocus = config.get<boolean>("pauseOnDefocus", true);
+
 export function handleFocusChange(focused: boolean) {
   isFocused = focused;
 
@@ -99,13 +107,13 @@ export function handleFocusChange(focused: boolean) {
     if (!isTimerPaused) {
       startTime = Date.now();
       startTimer();
-      updateStatusBarColor(isTimerPaused); // Update color when focus is regained
+      updateStatusBarColor(isTimerPaused);
     }
-  } else {
+  } else if (pauseOnDefocus) {
     stopTimer();
     if (!isTimerPaused) {
       elapsedBeforePause += Math.floor((Date.now() - startTime) / 1000);
     }
-    updateStatusBarColor(true); // Update color to gray when defocused
+    updateStatusBarColor(true);
   }
 }

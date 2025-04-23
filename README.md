@@ -12,6 +12,7 @@
 - 🔁 **Reset**: Start a fresh session anytime.
 - ⏰ **Break Reminders**: Get notified to take a break every 2 hours of continuous work.
 - 🎯 **Focus Detection**: Automatically pauses the timer when you leave VSCode, and resumes when you return.
+- 🛠️ **Toggle Focus Pause**: Choose whether leaving VSCode should pause your timer or not (configurable).
 - 📊 **Daily Summary**: View the total time you spent coding today — right from the status bar.
 
 ---
@@ -19,7 +20,7 @@
 ## 🚀 Getting Started
 
 1. Open **VSCode**.
-2. Install **Coder's Clock** from the Extensions Marketplace.
+2. Install **Coder's Clock** from the Extensions Marketplace (or install manually via `.vsix`).
 3. The timer will appear in your status bar.
 4. Use the **Pause**, **Reset**, and **Résumé** buttons to control your session.
 
@@ -27,11 +28,30 @@
 
 ## 🔧 Commands
 
-You can also access these from the **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`):
+Accessible via the **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
 - `Coder's Clock: Pause/Resume Timer`
 - `Coder's Clock: Reset Timer`
 - `Coder's Clock: Show Daily Summary`
+
+---
+
+## ⚙️ Extension Settings
+
+You can configure **Coder's Clock** from your VSCode settings:
+
+### 🔲 `codersClock.pauseOnDefocus`
+
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Automatically pause the timer when VSCode loses focus.
+
+**To update this setting:**
+
+1. Open Command Palette → `Preferences: Open Settings (UI)`
+2. Search for **"Coder's Clock"**
+3. Check or uncheck **"Automatically pause the timer when VSCode loses focus"**
+4. 🔄 **Restart VSCode** or reload the extension (`Developer: Reload Window`) to apply changes
 
 ---
 

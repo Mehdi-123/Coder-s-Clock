@@ -1,15 +1,19 @@
 import * as vscode from "vscode";
-import { createStatusBarItems, updateStatusBarColor } from "./statusBar";
+
+import {
+  createStatusBarItems,
+  updateStatusBarColor,
+  statusBarItem,
+} from "./statusBar";
 import {
   initTimer,
   togglePause,
   resetTimer,
   handleFocusChange,
   isTimerPaused,
+  stopTimer,
 } from "./timer";
 import { showDailySummary } from "./summary";
-import { stopTimer } from "./timer";
-import { statusBarItem } from "./statusBar";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('✅ Extension "coder-s-clock" is now active!');

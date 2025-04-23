@@ -2,7 +2,7 @@
   "name": "coder-s-clock",
   "displayName": "Coder's Clock",
   "description": "A mindful coding timer for VSCode that tracks your session time, reminds you to take beaks, and helps you stay in flow.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -14,10 +14,28 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Coder's Clock",
+      "properties": {
+        "codersClock.pauseOnDefocus": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically pause the timer when VSCode loses focus."
+        }
+      }
+    },
     "commands": [
       {
-        "command": "coder-s-clock.helloWorld",
-        "title": "Hello World"
+        "command": "coder-s-clock.togglePause",
+        "title": "Coder's Clock: Pause/Resume Timer"
+      },
+      {
+        "command": "coder-s-clock.resetTimer",
+        "title": "Coder's Clock: Reset Timer"
+      },
+      {
+        "command": "coder-s-clock.showDailySummary",
+        "title": "Coder's Clock: Show Daily Summary"
       }
     ]
   },
@@ -45,5 +63,10 @@
     "webpack-cli": "^5.1.4",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.3.9"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mehdi-123/Coder-s-Clock.git"
   }
 }

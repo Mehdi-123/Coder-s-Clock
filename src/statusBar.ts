@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+
 import { zenColors } from "./constants";
 
 let currentColorIndex = 0;
